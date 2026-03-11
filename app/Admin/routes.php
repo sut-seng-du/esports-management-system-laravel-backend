@@ -4,6 +4,7 @@ use Illuminate\Routing\Router;
 use App\Admin\Controllers\SeatController;
 use App\Admin\Controllers\InventoryController;
 use App\Admin\Controllers\RecordController;
+use App\Admin\Controllers\OutcomeController;
 Admin::routes();
 
 Route::group([
@@ -19,5 +20,6 @@ Route::group([
     $router->resource('seats', SeatController::class);
     $router->resource('inventories', InventoryController::class);
     $router->resource('records', RecordController::class);
+    $router->resource('outcomes', OutcomeController::class);
 
 });
