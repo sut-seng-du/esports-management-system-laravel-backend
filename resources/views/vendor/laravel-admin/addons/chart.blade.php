@@ -91,8 +91,8 @@
             <div class="card-in-chart">
                 <canvas id="barChart1"></canvas>
                 <div class="text-center">
-                    <button onclick="displayPrevious1()" class="btn btn-info"> <i class="fa fa-chevron-left"></i></button>
-                    <button onclick="displayNext1()"  class="btn btn-info"> <i class="fa fa-chevron-right"></i> </button>
+                    <button onclick="displayPrevious1()" class="btn btn-info"> <i class="icon-chevron-left"></i></button>
+                    <button onclick="displayNext1()"  class="btn btn-info"> <i class="icon-chevron-right"></i> </button>
                 </div>
             </div>
         </div>
@@ -100,8 +100,8 @@
             <div class="card-in-chart">
                 <canvas id="barChart2"></canvas>
                 <div class="text-center">
-                    <button onclick="displayPrevious2()" class="btn btn-danger"> <i class="fa fa-chevron-left"></i> </button>
-                    <button onclick="displayNext2()"  class="btn btn-danger"> <i class="fa fa-chevron-right"></i> </button>
+                    <button onclick="displayPrevious2()" class="btn btn-danger"> <i class="icon-chevron-left"></i> </button>
+                    <button onclick="displayNext2()"  class="btn btn-danger"> <i class="icon-chevron-right"></i> </button>
                 </div>
             </div>
         </div>
@@ -113,10 +113,10 @@
                 <canvas id="barChartWeekly1"></canvas>
                 <div class="text-center">
                     <button onclick="displayPreviousWeekly1()" class="btn btn-info">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="icon-chevron-left"></i>
                     </button>
                     <button onclick="displayNextWeekly1()" class="btn btn-info">
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="icon-chevron-right"></i>
                     </button>
                 </div>
             </div>
@@ -126,10 +126,10 @@
                 <canvas id="barChartWeekly2"></canvas>
                 <div class="text-center">
                     <button onclick="displayPreviousWeekly2()" class="btn btn-danger">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="icon-chevron-left"></i>
                     </button>
                     <button onclick="displayNextWeekly2()" class="btn btn-danger">
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="icon-chevron-right"></i>
                     </button>
                 </div>
             </div>
@@ -160,10 +160,10 @@
                                 </div>
                                 <div class="text-center">
                                     <button onclick="displayPreviousOrders()" class="btn btn-success">
-                                        <i class="fa fa-chevron-left"></i>
+                                        <i class="icon-chevron-left"></i>
                                     </button>
                                     <button onclick="displayNextOrders()" class="btn btn-success">
-                                        <i class="fa fa-chevron-right"></i>
+                                        <i class="icon-chevron-right"></i>
                                     </button>
                                 </div>
                             </div>
@@ -177,10 +177,10 @@
                                 </div>
                                 <div class="text-center">
                                     <button onclick="displayPreviousOutcomes()" class="btn btn-primary">
-                                        <i class="fa fa-chevron-left"></i>
+                                        <i class="icon-chevron-left"></i>
                                     </button>
                                     <button onclick="displayNextOutcomes()" class="btn btn-primary">
-                                        <i class="fa fa-chevron-right"></i>
+                                        <i class="icon-chevron-right"></i>
                                     </button>
                                 </div>
                             </div>

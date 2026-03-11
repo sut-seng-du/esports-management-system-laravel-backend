@@ -23,23 +23,23 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-6 col-md-3 ml-md-auto upper_block">
-            <div class=" bg-success block "><a href="{{url("admin/dashboard/online")}}">
-                <i class="fa fa-desktop"></i> Online ({{ $onlinePlayer }}) </a>
+            <div class=" bg-success block"><a href="{{url("admin/dashboard/online")}}">
+                <i class="icon-desktop"></i> Online ({{ $onlinePlayer }}) </a>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 ml-md-auto upper_block ">
             <div class=" bg-danger block"><a href="{{url("admin/dashboard/debt")}}">
-                <i class="fa fa-money"></i> Debt ({{ $debtCount }}) </a>
+                <i class="icon-money-bill"></i> Debt ({{ $debtCount }}) </a>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 ml-md-auto upper_block ">
             <div class=" bg-info block"><a href="{{url("admin/dashboard/stock")}}">
-                <i class="fa fa-cubes"></i> Instock ({{ $instockCount }}) </a>
+                <i class="icon-cubes"></i> Instock ({{ $instockCount }}) </a>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 ml-md-auto upper_block ">
             <div class=" bg-warning block"><a href="{{url("admin/dashboard/unpaid")}}">
-                <i class="fa fa-credit-card"></i> Unpaid ({{ $unpaidCount }})</a>
+                <i class="icon-credit-card"></i> Unpaid ({{ $unpaidCount }})</a>
             </div>
         </div>
     </div>
