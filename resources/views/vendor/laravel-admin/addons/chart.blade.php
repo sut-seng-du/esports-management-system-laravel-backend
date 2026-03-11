@@ -6,79 +6,32 @@
 }
 .card-in-chart{
     background: #ffffff;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px;
-    padding: 5px;
     border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+.card-in-chart:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+.chart-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
- .dashboard-matrix {
-    width: 100%;
-    margin: 0;
-    table-layout: fixed;
-    border-collapse: collapse;
- }
-
- .dashboard-matrix td {
-    padding: 15px;
-    vertical-align: top;
-    box-sizing: border-box;
- }
-
- .dashboard-matrix .card {
-    padding: 0;
- }
-
- .dashboard-matrix .card-in-chart {
-    padding: 18px;
- }
-
- .dashboard-matrix .matrix-chart {
+ .matrix-chart {
     position: relative;
     width: 100%;
     height: 420px;
  }
 
- .dashboard-matrix-wrapper {
-    padding-left: 0;
-    padding-right: 0;
- }
-
- .dashboard-charts-container {
-    padding-left: 0;
-    padding-right: 0;
- }
-
- .dashboard-charts-container .row {
-    margin-left: 0;
-    margin-right: 0;
- }
-
- .dashboard-matrix .matrix-chart canvas {
-    width: 100% !important;
-    height: 100% !important;
- }
-
  @media (max-width: 767px) {
-    .dashboard-charts-container {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-    .dashboard-matrix,
-    .dashboard-matrix tbody,
-    .dashboard-matrix tr,
-    .dashboard-matrix td {
-        display: block;
-        width: 100% !important;
-    }
-
-    .dashboard-matrix td {
-        padding: 0;
-        margin-bottom: 15px;
-    }
-
-    .dashboard-matrix .matrix-chart {
+    .matrix-chart {
         height: 320px;
     }
  }
@@ -87,48 +40,52 @@
 
 <div class="container-fluid dashboard-charts-container">
     <div class="row">
-        <div class="card col-md-6">
+        <div class="col-md-6 mb-3">
             <div class="card-in-chart">
+                <div class="chart-title text-center">Daily Total Incomes</div>
                 <canvas id="barChart1"></canvas>
-                <div class="text-center">
-                    <button onclick="displayPrevious1()" class="btn btn-info"> <i class="icon-chevron-left"></i></button>
-                    <button onclick="displayNext1()"  class="btn btn-info"> <i class="icon-chevron-right"></i> </button>
+                <div class="text-center mt-3">
+                    <button onclick="displayPrevious1()" class="btn btn-sm btn-info rounded-pill px-3"> <i class="icon-chevron-left"></i></button>
+                    <button onclick="displayNext1()"  class="btn btn-sm btn-info rounded-pill px-3"> <i class="icon-chevron-right"></i> </button>
                 </div>
             </div>
         </div>
-        <div class="card col-md-6">
+        <div class="col-md-6 mb-3">
             <div class="card-in-chart">
+                <div class="chart-title text-center">Daily Member Incomes</div>
                 <canvas id="barChart2"></canvas>
-                <div class="text-center">
-                    <button onclick="displayPrevious2()" class="btn btn-danger"> <i class="icon-chevron-left"></i> </button>
-                    <button onclick="displayNext2()"  class="btn btn-danger"> <i class="icon-chevron-right"></i> </button>
+                <div class="text-center mt-3">
+                    <button onclick="displayPrevious2()" class="btn btn-sm btn-danger rounded-pill px-3"> <i class="icon-chevron-left"></i> </button>
+                    <button onclick="displayNext2()"  class="btn btn-sm btn-danger rounded-pill px-3"> <i class="icon-chevron-right"></i> </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row" style="margin-top: 15px;">
-        <div class="card col-md-6">
+    <div class="row mt-3">
+        <div class="col-md-6 mb-3">
             <div class="card-in-chart">
+                <div class="chart-title text-center">Weekly Total Incomes</div>
                 <canvas id="barChartWeekly1"></canvas>
-                <div class="text-center">
-                    <button onclick="displayPreviousWeekly1()" class="btn btn-info">
+                <div class="text-center mt-3">
+                    <button onclick="displayPreviousWeekly1()" class="btn btn-sm btn-info rounded-pill px-3">
                         <i class="icon-chevron-left"></i>
                     </button>
-                    <button onclick="displayNextWeekly1()" class="btn btn-info">
+                    <button onclick="displayNextWeekly1()" class="btn btn-sm btn-info rounded-pill px-3">
                         <i class="icon-chevron-right"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="card col-md-6">
+        <div class="col-md-6 mb-3">
             <div class="card-in-chart">
+                <div class="chart-title text-center">Weekly Member Incomes</div>
                 <canvas id="barChartWeekly2"></canvas>
-                <div class="text-center">
-                    <button onclick="displayPreviousWeekly2()" class="btn btn-danger">
+                <div class="text-center mt-3">
+                    <button onclick="displayPreviousWeekly2()" class="btn btn-sm btn-danger rounded-pill px-3">
                         <i class="icon-chevron-left"></i>
                     </button>
-                    <button onclick="displayNextWeekly2()" class="btn btn-danger">
+                    <button onclick="displayNextWeekly2()" class="btn btn-sm btn-danger rounded-pill px-3">
                         <i class="icon-chevron-right"></i>
                     </button>
                 </div>
@@ -136,58 +93,54 @@
         </div>
     </div>
 
-    <div class="row" style="margin-top: 15px;">
-        <div class="col-md-12 dashboard-matrix-wrapper">
-            <table class="dashboard-matrix">
-                <tr>
-                    <td style="width: 33%; vertical-align: top;">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-in-chart">
-                                <div class="text-center" style="margin-bottom: 10px; font-weight: 600;">
-                                    Inventory Stock Proportion
-                                </div>
-                                <div class="matrix-chart">
-                                    <canvas id="pieChart1"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td style="width: 33%; vertical-align: top;">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-in-chart">
-                                <div class="matrix-chart">
-                                    <canvas id="barChart3"></canvas>
-                                </div>
-                                <div class="text-center">
-                                    <button onclick="displayPreviousOrders()" class="btn btn-success">
-                                        <i class="icon-chevron-left"></i>
-                                    </button>
-                                    <button onclick="displayNextOrders()" class="btn btn-success">
-                                        <i class="icon-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td style="width: 33%; vertical-align: top;">
-                        <div class="card" style="width: 100%;">
-                            <div class="card-in-chart">
-                                <div class="matrix-chart">
-                                    <canvas id="barChartOutcomes"></canvas>
-                                </div>
-                                <div class="text-center">
-                                    <button onclick="displayPreviousOutcomes()" class="btn btn-primary">
-                                        <i class="icon-chevron-left"></i>
-                                    </button>
-                                    <button onclick="displayNextOutcomes()" class="btn btn-primary">
-                                        <i class="icon-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+    <div class="row mt-3">
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card-in-chart">
+                <div class="chart-title text-center">Inventory Drink Proportion</div>
+                <div class="matrix-chart">
+                    <canvas id="pieChart1"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card-in-chart">
+                <div class="chart-title text-center">Inventory Food Proportion</div>
+                <div class="matrix-chart">
+                    <canvas id="pieChartFood"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card-in-chart">
+                <div class="chart-title text-center">Weekly Drink Orders</div>
+                <div class="matrix-chart">
+                    <canvas id="barChart3"></canvas>
+                </div>
+                <div class="text-center mt-3">
+                    <button onclick="displayPreviousOrders()" class="btn btn-sm btn-success rounded-pill px-3">
+                        <i class="icon-chevron-left"></i>
+                    </button>
+                    <button onclick="displayNextOrders()" class="btn btn-sm btn-success rounded-pill px-3">
+                        <i class="icon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card-in-chart">
+                <div class="chart-title text-center">Weekly Outcomes</div>
+                <div class="matrix-chart">
+                    <canvas id="barChartOutcomes"></canvas>
+                </div>
+                <div class="text-center mt-3">
+                    <button onclick="displayPreviousOutcomes()" class="btn btn-sm btn-primary rounded-pill px-3">
+                        <i class="icon-chevron-left"></i>
+                    </button>
+                    <button onclick="displayNextOutcomes()" class="btn btn-sm btn-primary rounded-pill px-3">
+                        <i class="icon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -474,59 +427,97 @@
         displayNextWeekly1();
     }
 
-    //Piechart1
+    //Piechart1 (Now Horizontal Bar)
     // Fetch item names and quantities from the inventories data
     var inventories = {!! $inventories !!};
-
 
     // Extract labels (item names) and data (quantities) from the inventories array
     var labels = inventories.map(item => item.item_name);
     var data = inventories.map(item => item.qty);
 
-    // Create a new pie chart using Chart.js
+    // Create a new bar chart using Chart.js
     var ctx3 = document.getElementById('pieChart1').getContext('2d');
     var pieChart = new Chart(ctx3, {
         type: 'bar',
         data: {
             labels: labels,
             datasets: [{
-                label: 'Inventory Stock',
+                label: 'Qty in Stock',
                 data: data,
-                backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+                borderRadius: 5,
             }],
         },
         options: {
+            indexAxis: 'y', // This makes it a horizontal bar chart
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             scales: {
                 x: {
+                    beginAtZero: true,
                     grid: {
-                        display: false,
-                    },
+                        color: 'rgba(0,0,0,0.05)'
+                    }
                 },
                 y: {
-                    beginAtZero: true,
-                },
-            },
-            legend: {
-                display: false,
-            },
-            tooltips: {
-                callbacks: {
-                    label: function (context) {
-                        var label = context.label || '';
-                        var value = context.parsed.y || 0;
-                        return label + ': ' + value;
+                    grid: {
+                        display: false
                     }
                 }
             }
         },
     });
 
+    // Food Proportion Chart (Horizontal Bar)
+    var foodInventories = {!! $foodInventories !!};
+    var foodLabels = foodInventories.map(item => item.item_name);
+    var foodData = foodInventories.map(item => item.qty);
 
-
+    var ctxFood = document.getElementById('pieChartFood').getContext('2d');
+    var pieChartFood = new Chart(ctxFood, {
+        type: 'bar',
+        data: {
+            labels: foodLabels,
+            datasets: [{
+                label: 'Qty in Stock',
+                data: foodData,
+                backgroundColor: 'rgba(255, 159, 64, 0.6)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1,
+                borderRadius: 5,
+            }],
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0,0,0,0.05)'
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        },
+    });
 
     //barchart3 - Weekly order counts with navigation
     var invAndRec =  @json($inventoriesAll);

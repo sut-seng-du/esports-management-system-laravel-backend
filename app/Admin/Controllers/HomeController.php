@@ -16,6 +16,28 @@ class HomeController extends Controller
 {
     public function index(Content $content)
     {
+        // Custom CSS to fix mobile overflow and footer stacking
+        Admin::style('
+            @media (max-width: 767px) {
+                .content > .row {
+                    margin-right: 0px !important;
+                    margin-left: 0px !important;
+                }
+                .col-md-4, .col-md-6, .col-md-3:not(.upper_block) {
+                    width: 100% !important;
+                    padding: 0 5px !important;
+                }
+                .box {
+                    overflow-x: auto;
+                }
+                table {
+                     display: block;
+                     overflow-x: auto;
+                     white-space: nowrap;
+                }
+            }
+        ');
+
         return $content
             ->css_file(Admin::asset("open-admin/css/pages/dashboard.css"))
             ->title('Dashboard')
@@ -36,5 +58,33 @@ class HomeController extends Controller
                     $column->append(Dashboard::dependencies());
                 });
             });
+    }
+    public function online(Content $content)
+    {
+        return $content
+        ->title('Online')
+        ->description('Seats')
+        ->row(Dashboard::online());
+    }
+    public function debt(Content $content)
+    {
+        return $content
+        ->title('Debt')
+        ->description('list')
+        ->row(Dashboard::debt());
+    }
+    public function unpaid(Content $content)
+    {
+        return $content
+        ->title('Unpaid')
+        ->description('list')
+        ->row(Dashboard::unpaid());
+    }
+    public function stock(Content $content)
+    {
+        return $content
+        ->title('Stock')
+        ->description('list')
+        ->row(Dashboard::stock());
     }
 }

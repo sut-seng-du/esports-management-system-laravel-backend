@@ -29,8 +29,25 @@ class Dashboard
 
     public static function chart()
     {
-        $inventories = DB::table('inventories')->where('type','Drink')->select('item_name', 'qty')->get();
-        $inventoriesAll = DB::table('inventories')->where('type','Drink')->pluck('item_name')->toArray();
+        $allInventories = DB::table('inventories')
+            ->where('type', 'Drink')
+            ->select('item_name', 'qty')
+            ->orderByDesc('qty')
+            ->get();
+
+        $topInventories = $allInventories->take(10);
+        $otherInventories = $allInventories->slice(10);
+
+        if ($otherInventories->count() > 0) {
+            $othersQty = $otherInventories->sum('qty');
+            $topInventories->push((object)[
+                'item_name' => 'Others',
+                'qty' => $othersQty
+            ]);
+        }
+
+        $inventories = $topInventories;
+        $inventoriesAll = DB::table('inventories')->where('type', 'Drink')->pluck('item_name')->toArray();
         $records = DB::table('records')->orderBy('order')->pluck('order')->toArray();
         // Retrieve the daily sums of 'total' column
         $dailyTotals = DB::table('records')
@@ -104,10 +121,29 @@ class Dashboard
             return intval($amount);
         });
 
+        $allFoodInventories = DB::table('inventories')
+            ->where('type', 'Food')
+            ->select('item_name', 'qty')
+            ->orderByDesc('qty')
+            ->get();
+
+        $topFoodInventories = $allFoodInventories->take(10);
+        $otherFoodInventories = $allFoodInventories->slice(10);
+
+        if ($otherFoodInventories->count() > 0) {
+            $othersFoodQty = $otherFoodInventories->sum('qty');
+            $topFoodInventories->push((object)[
+                'item_name' => 'Others',
+                'qty' => $othersFoodQty
+            ]);
+        }
+        $foodInventories = $topFoodInventories;
+
         return view(
             'vendor.laravel-admin.addons.chart',
             compact(
                 'inventories',
+                'foodInventories',
                 'dates',
                 'totals',
                 'amounts',
@@ -125,11 +161,14 @@ class Dashboard
 
     public static function online()
     {
-        $seats = DB::table('records')->where('online', 1)->pluck('seat')->toArray();
-        $onlinememberids = DB::table('records')->where('online', 1)->pluck('member_ID')->toArray();
-
+        $records = DB::table('records')->where('online', 1)->get(['seat', 'member_ID', 'created_at']);
+        $seats = $records->pluck('seat')->toArray();
+        
         // Create an associative array with seats as keys and member IDs as values
-        $seatMemberIds = array_combine($seats, $onlinememberids);
+        $seatMemberIds = $records->pluck('member_ID', 'seat')->toArray();
+
+        // Create an associative array with seats as keys and session start times as values
+        $seatOnlineTimes = $records->pluck('created_at', 'seat')->toArray();
 
         // Seat list comes from seats table (admin -> seats)
         // Natural sort: A1, A2, ... A10 (instead of A1, A10, A11, A2)
@@ -147,8 +186,8 @@ class Dashboard
             'seats' => $seats,
             'statusArray' => $statusArray,
             'seatMemberIds' => $seatMemberIds,
+            'seatOnlineTimes' => $seatOnlineTimes,
         ]);
-
     }
 
     public static function debt()
