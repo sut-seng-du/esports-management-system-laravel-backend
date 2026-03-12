@@ -75,15 +75,15 @@
 <center>
     <div class="container-fluid bigger-grid">
         <div class="row grid">
-            <div class="col-xs-4 upper-sample">
+            <div class="col-4 upper-sample">
                 <div class="sample1"></div>
                 <p>More than 10</p>
             </div>
-            <div class="col-xs-4 upper-sample">
+            <div class="col-4 upper-sample">
                 <div class="sample2"></div>
                 <p>Equal or lower than 10</p>
             </div>
-            <div class="col-xs-4 upper-sample">
+            <div class="col-4 upper-sample">
                 <div class="sample3"></div>
                 <p>0</p>
             </div>
@@ -96,7 +96,7 @@
             @php
             $formattedQty = intval($inventory->qty);
             @endphp
-            <div class="col-xs-6 col-md-2 col-lg-2 main-block">
+            <div class="col-6 col-md-2 col-lg-2 main-block">
                 <div class="upper-block">
                     <img src="{{url('/images/box.png')}}" class="img img-fluid {{ $inventory->qty > 10 ? 'bg-success' : ($inventory->qty > 0 ? 'bg-warning' : 'bg-danger') }} block"  />
                     <p>{{ $inventory->item_name }}({{ $formattedQty }})</p>

@@ -17,4 +17,12 @@ class Announcement extends Model
         'poster_image',
         'active',
     ];
+
+    public function getPosterImageAttribute($value)
+    {
+        if ($value) {
+            return url('storage/' . $value);
+        }
+        return null;
+    }
 }
