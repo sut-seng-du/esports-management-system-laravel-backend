@@ -21,4 +21,9 @@ class Record extends Model
         'created_date',
         'modified_date',
     ];
+
+    protected $casts = [
+        'created_date' => 'datetime',
+        'modified_date' => 'datetime',
+    ];
 }
