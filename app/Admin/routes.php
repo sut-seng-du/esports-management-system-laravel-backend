@@ -25,6 +25,8 @@ Route::group([
     $router->resource('inventories', InventoryController::class);
     $router->resource('records', RecordController::class);
     $router->resource('outcomes', OutcomeController::class);
-    $router->resource('pricings', PricingController::class);
+    $router->resource('pricing', PricingController::class);
+    $router->resource('announcements', AnnouncementController::class);
+    $router->resource('users', UserController::class);
 
 });
