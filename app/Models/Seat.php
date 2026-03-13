@@ -11,4 +11,8 @@ class Seat extends Model
     protected $fillable = [
         'code',
     ];
+    public function bookings()
+    {
+        return $this->belongsToMany(Booking::class);
+    }
 }

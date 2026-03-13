@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\OutcomeController;
 use App\Http\Controllers\Api\SeatController;
 use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\PricingController;
+use App\Http\Controllers\Api\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +87,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Protected Pricing & Announcements (Create, Update, Delete)
     Route::apiResource('pricing', PricingController::class)->except(['index', 'show']);
     Route::apiResource('announcements', AnnouncementController::class)->except(['index', 'show']);
+
+    // Bookings API Routes
+    Route::get('/bookings/availability', [BookingController::class, 'availability']);
+    Route::apiResource('bookings', BookingController::class);
 
 });
 

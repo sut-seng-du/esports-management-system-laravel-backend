@@ -28,5 +28,6 @@ Route::group([
     $router->resource('pricing', PricingController::class);
     $router->resource('announcements', AnnouncementController::class);
     $router->resource('users', UserController::class);
+    $router->resource('bookings', BookingController::class);
 
 });
