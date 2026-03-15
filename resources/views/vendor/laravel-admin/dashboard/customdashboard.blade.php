@@ -54,9 +54,9 @@
     }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid m-0 p-0">
     <div class="row">
-        <div class="col-6 col-md-3 upper_block">
+        <div class="col-12 col-sm-6 col-md-3 upper_block">
             <div class="bg-glass-success block">
                 <a href="{{url("admin/dashboard/online")}}">
                     <i class="icon-desktop"></i>
@@ -64,7 +64,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-6 col-md-3 upper_block">
+        <div class="col-12 col-sm-6 col-md-3 upper_block">
             <div class="bg-glass-danger block">
                 <a href="{{url("admin/dashboard/debt")}}">
                     <i class="icon-money-bill"></i>
@@ -72,7 +72,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-6 col-md-3 upper_block">
+        <div class="col-12 col-sm-6 col-md-3 upper_block">
             <div class="bg-glass-info block">
                 <a href="{{url("admin/dashboard/stock")}}">
                     <i class="icon-cubes"></i>
@@ -80,7 +80,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-6 col-md-3 upper_block">
+        <div class="col-12 col-sm-6 col-md-3 upper_block">
             <div class="bg-glass-warning block">
                 <a href="{{url("admin/dashboard/unpaid")}}">
                     <i class="icon-credit-card"></i>

@@ -8,7 +8,7 @@
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    padding: 20px;
+    padding: 0px;
     transition: all 0.3s ease;
     border: 1px solid rgba(0,0,0,0.02);
 }
@@ -27,18 +27,34 @@
  .matrix-chart {
     position: relative;
     width: 100%;
-    height: 420px;
+    height: 400px;
+ }
+
+ .card-in-chart canvas {
+    max-height: 400px;
+ }
+
+ @media (min-width: 768px) and (max-width: 1240px) {
+    .matrix-chart {
+        height: 480px;
+    }
+    .card-in-chart canvas {
+        height: 420px !important;
+    }
  }
 
  @media (max-width: 767px) {
     .matrix-chart {
-        height: 320px;
+        height: 320px; /* Increased from 320px */
+    }
+    .card-in-chart canvas {
+        height: 300px !important; /* Force a readable height on mobile */
     }
  }
 
 </style>
 
-<div class="container-fluid dashboard-charts-container">
+<div class="container-fluid dashboard-charts-container m-0 p-0">
     <div class="row">
         <div class="col-md-6 mb-3">
             <div class="card-in-chart">
@@ -173,7 +189,7 @@
         },
             options: {
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
                 scales: {
                     x: {
                         grid: {
@@ -263,7 +279,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             scales: {
                 x: {
                     grid: {
@@ -323,7 +339,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             scales: {
                 x: {
                     grid: {
@@ -364,7 +380,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             scales: {
                 x: {
                     grid: {

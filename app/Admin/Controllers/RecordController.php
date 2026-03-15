@@ -140,44 +140,50 @@ class RecordController extends AdminController
             }
 
             $form->html('
-                <div class="box box-solid box-primary" style="margin-top: 15px;">
-                    <div class="box-header with-border">
+                <div class="box box-solid box-primary shadow-sm" style="margin-top: 15px; border-radius: 8px; overflow: hidden;">
+                    <div class="box-header with-border" style="background: linear-gradient(135deg, #3c8dbc 0%, #1e5799 100%);">
                         <h3 class="box-title"><i class="fa fa-shopping-cart"></i> Manage Order Items</h3>
                     </div>
-                    <div class="box-body">
-                        <div class="row" style="margin-bottom: 20px;">
-                            <div class="col-sm-6">
+                    <div class="box-body" style="padding: 20px;">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6" style="margin-bottom: 15px;">
                                 <label>Select Drink</label>
-                                <select class="form-control custom-item-select" name="custom_drink">
+                                <select class="form-control custom-item-select" name="custom_drink" style="border-radius: 4px;">
                                     '.$drinkOptions.'
                                 </select>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-xs-12 col-sm-6" style="margin-bottom: 15px;">
                                 <label>Select Food</label>
-                                <select class="form-control custom-item-select" name="custom_food">
+                                <select class="form-control custom-item-select" name="custom_food" style="border-radius: 4px;">
                                     '.$foodOptions.'
                                 </select>
                             </div>
                         </div>
-                        <div class="row" style="margin-bottom: 15px;">
-                            <div class="col-sm-6">
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-xs-12 col-sm-6" style="margin-bottom: 15px;">
                                 <label>Item Quantity</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-cubes"></i></span>
-                                    <input type="number" id="itemQty" class="form-control" value="1" min="1">
+                                    <span class="input-group-addon" style="border-radius: 4px 0 0 4px;"><i class="fa fa-cubes"></i></span>
+                                    <input type="number" id="itemQty" class="form-control" value="1" min="1" style="border-radius: 0 4px 4px 0;">
                                 </div>
                             </div>
-                            <div class="col-sm-6" style="padding-top: 25px;">
-                                <button type="button" id="addToOrderBtn" class="btn btn-primary btn-block"><i class="fa fa-plus-circle"></i> Add to Order</button>
+                            <div class="col-xs-12 col-sm-6" style="padding-top: 0;">
+                                <label class="hidden-xs">&nbsp;</label>
+                                <button type="button" id="addToOrderBtn" class="btn btn-primary btn-block" style="border-radius: 4px; font-weight: 600; padding: 8px;"><i class="fa fa-plus-circle"></i> Add to Order</button>
                             </div>
                         </div>
                         
-                        <div style="margin-top: 20px;">
-                            <label><i class="fa fa-list"></i> Current Order Items</label>
-                            <div class="well well-sm" style="background-color: #f9fafc; min-height: 50px;">
+                        <div style="margin-top: 25px;">
+                            <label style="display: block; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 15px;">
+                                <i class="fa fa-list"></i> Current Order Items
+                            </label>
+                            <div class="order-list-container" style="background-color: #fcfcfc; border-radius: 8px; border: 1px inset #eee; min-height: 100px; padding: 10px;">
                                 <ul id="order-list" class="list-group" style="margin-bottom: 0;">
                                     <!-- Items will be appended here dynamically -->
-                                    <li class="list-group-item text-muted text-center" id="empty-state-li" style="border: none; background: transparent;">No items added yet</li>
+                                    <li class="list-group-item text-muted text-center" id="empty-state-li" style="border: none; background: transparent; padding: 30px 0;">
+                                        <i class="fa fa-shopping-basket" style="font-size: 24px; display: block; margin-bottom: 10px; opacity: 0.5;"></i>
+                                        No items added yet
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -185,8 +191,52 @@ class RecordController extends AdminController
                 </div>
                 
                 <style>
-                    #order-list .list-group-item { margin-bottom: 5px; border-radius: 4px; border-left: 4px solid #3c8dbc; }
-                    .remove-item-btn { padding: 2px 8px; font-size: 12px; }
+                    .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+                    #order-list .list-group-item { 
+                        margin-bottom: 8px; 
+                        border-radius: 6px !important; 
+                        border: 1px solid #eee;
+                        border-left: 5px solid #3c8dbc;
+                        transition: all 0.2s;
+                        overflow: hidden;
+                    }
+                    #order-list .list-group-item:hover { background-color: #f0f7fd; }
+                    .remove-item-btn { 
+                        padding: 4px 10px; 
+                        font-size: 13px;
+                        border-radius: 4px;
+                    }
+                    
+                    /* Wide Tablet and iPad Fixes (Up to 1240px) */
+                    @media (max-width: 1240px) {
+                        /* Force the two main columns to stack */
+                        .col-md-6.form-horizontal { 
+                            width: 100% !important; 
+                            float: none !important; 
+                        }
+                        
+                        /* Make labels appear above inputs to save horizontal space */
+                        .form-group label.col-sm-2, .form-group .col-sm-8 {
+                            width: 100% !important;
+                            text-align: left !important;
+                        }
+                        .form-group label.col-sm-2 {
+                            padding-bottom: 5px;
+                        }
+                        .form-group .col-sm-8 {
+                            padding-left: 15px !important;
+                        }
+                        
+                        .box-body { padding: 20px !important; }
+                        .col-sm-6 { width: 100% !important; float: none !important; margin-bottom: 15px; }
+                        #addToOrderBtn { margin-top: 0; }
+                        .order-list-container { min-height: 200px; }
+                    }
+
+                    @media (max-width: 767px) {
+                        .box-body { padding: 15px !important; }
+                        .hidden-xs { display: none !important; }
+                    }
                 </style>
             ');
 
