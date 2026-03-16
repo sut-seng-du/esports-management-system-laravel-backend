@@ -73,29 +73,36 @@ class Dashboard
             return intval($amount);
         });
 
-        // Weekly aggregates (all weeks, will paginate in frontend)
+        // Detect DB driver for compatibility (MySQL vs SQLite in tests)
+        $isSqlite = DB::connection()->getDriverName() === 'sqlite';
+        $yearWeekSql = $isSqlite ? "strftime('%Y%W', created_at)" : "YEARWEEK(created_at, 1)";
+
+        // Weekly aggregates
         $weeklyTotals = DB::table('records')
-            ->selectRaw('YEARWEEK(created_at, 1) as yearweek, SUM(total) as sum_total')
+            ->selectRaw("$yearWeekSql as yearweek, SUM(total) as sum_total")
             ->groupBy('yearweek')
             ->orderBy('yearweek')
             ->get();
 
         $weeklyAmounts = DB::table('records')
-            ->selectRaw('YEARWEEK(created_at, 1) as yearweek, SUM(member_amount) as sum_amount')
+            ->selectRaw("$yearWeekSql as yearweek, SUM(member_amount) as sum_amount")
             ->groupBy('yearweek')
             ->orderBy('yearweek')
             ->get();
 
-        // Weekly orders (concatenated order strings per week) for weekly order count chart
+        // Weekly orders
         $weeklyOrders = DB::table('records')
-            ->selectRaw('YEARWEEK(created_at, 1) as yearweek, GROUP_CONCAT(`order` SEPARATOR " ||| ") as orders_concat')
+            ->selectRaw($isSqlite 
+                ? "strftime('%Y%W', created_at) as yearweek, GROUP_CONCAT(`order`) as orders_concat" 
+                : "YEARWEEK(created_at, 1) as yearweek, GROUP_CONCAT(`order` SEPARATOR ' ||| ') as orders_concat"
+            )
             ->groupBy('yearweek')
             ->orderBy('yearweek')
             ->get();
 
         $monthlyWeeklyOutcomes = DB::table('outcomes')
             ->where('created_at', '>=', Carbon::now()->subMonth())
-            ->selectRaw('YEARWEEK(created_at, 1) as yearweek, SUM(price) as sum_price')
+            ->selectRaw("$yearWeekSql as yearweek, SUM(price) as sum_price")
             ->groupBy('yearweek')
             ->orderBy('yearweek')
             ->get();
@@ -170,10 +177,16 @@ class Dashboard
         // Create an associative array with seats as keys and session start times as values
         $seatOnlineTimes = $records->pluck('created_at', 'seat')->toArray();
 
+        // Detect DB driver for compatibility (MySQL vs SQLite in tests)
+        $isSqlite = DB::connection()->getDriverName() === 'sqlite';
+        $orderSql = $isSqlite 
+            ? "substr(code, 1, 1), cast(substr(code, 2) as integer), code"
+            : "LEFT(code, 1), CAST(SUBSTRING(code, 2) AS UNSIGNED), code";
+
         // Seat list comes from seats table (admin -> seats)
         // Natural sort: A1, A2, ... A10 (instead of A1, A10, A11, A2)
         $statusArray = Seat::query()
-            ->orderByRaw('LEFT(code, 1), CAST(SUBSTRING(code, 2) AS UNSIGNED), code')
+            ->orderByRaw($orderSql)
             ->pluck('code')
             ->toArray();
 
