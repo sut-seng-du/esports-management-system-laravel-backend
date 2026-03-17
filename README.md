@@ -11,19 +11,37 @@ A robust Laravel-based backend for managing eSports centers, including seat book
 - **Announcements Management**: Schedule and display banners/announcements for users.
 - **Admin Dashboard**: Comprehensive administrative interface powered by Open Admin.
 
-## ExampleScreenshots
+## Feature Showcase
+
+### 📊 Dashboard & Monitoring
+A comprehensive overview of daily/weekly incomes, inventory proportions, and real-time system status. The dashboard provides clear data visualizations for better decision-making.
 
 <p align="center">
-  <img src="docs/screenshots/dashboard.png" width="45%" alt="Dashboard Overview">
-  <img src="docs/screenshots/seats.png" width="45%" alt="Seat Management">
+  <img src="docs/screenshots/dashboard.png" width="90%" alt="Dashboard Overview">
 </p>
+
+### 🖥️ Seat Management
+Real-time tracking of all gaming stations. Admins can monitor seat availability and status at a glance, ensuring efficient floor management.
+
 <p align="center">
-  <img src="docs/screenshots/inventory.png" width="45%" alt="Inventory List">
-  <img src="docs/screenshots/records_list.png" width="45%" alt="Records list">
+  <img src="docs/screenshots/seats.png" width="90%" alt="Seat Management">
 </p>
+
+### 📦 Inventory & Stock
+Easily manage eSports center supplies and hardware. Visual indicators help keep track of stock levels for drinks, snacks, and equipment.
+
 <p align="center">
-  <img src="docs/screenshots/record_create.png" width="90%" alt="Record Creation">
+  <img src="docs/screenshots/inventory.png" width="90%" alt="Inventory List">
 </p>
+
+### 📝 Comprehensive Records
+Detailed management of all transactions and match records. The system provides powerful filtering and export capabilities for administrative reports.
+
+<p align="center">
+  <img src="docs/screenshots/records_list.png" width="90%" alt="Records List">
+  <img src="docs/screenshots/record_create.png" width="90%" alt="Record Creation" style="margin-top: 20px;">
+</p>
+
 
 ## Tech Stack
 
