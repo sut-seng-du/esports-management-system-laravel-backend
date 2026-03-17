@@ -1,4 +1,4 @@
-# eSports Management System Backend
+# Esports Management System - Laravel Backend
 
 A robust Laravel-based backend for managing eSports centers, including seat bookings, inventory management, match records, and more.
 
@@ -10,6 +10,20 @@ A robust Laravel-based backend for managing eSports centers, including seat book
 - **Match Outcomes & Records**: Record game results and maintain match history.
 - **Announcements Management**: Schedule and display banners/announcements for users.
 - **Admin Dashboard**: Comprehensive administrative interface powered by Open Admin.
+
+## ExampleScreenshots
+
+<p align="center">
+  <img src="docs/screenshots/dashboard.png" width="45%" alt="Dashboard Overview">
+  <img src="docs/screenshots/seats.png" width="45%" alt="Seat Management">
+</p>
+<p align="center">
+  <img src="docs/screenshots/inventory.png" width="45%" alt="Inventory List">
+  <img src="docs/screenshots/records_list.png" width="45%" alt="Records list">
+</p>
+<p align="center">
+  <img src="docs/screenshots/record_create.png" width="90%" alt="Record Creation">
+</p>
 
 ## Tech Stack
 
@@ -76,4 +90,4 @@ Default credentials (if seeded):
 The API routes are defined in `routes/api.php`. Most endpoints require a bearer token obtained via Laravel Sanctum.
 
 ---
-*Created with ❤️ for eSports Management.*
+*Created with ❤️ for Esports Management.*
