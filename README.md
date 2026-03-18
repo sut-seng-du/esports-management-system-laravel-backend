@@ -1,6 +1,6 @@
 # Esports Management System - Laravel Backend
 
-A robust Laravel-based backend for managing eSports centers, including seat bookings, inventory management, match records, and more.
+A robust Laravel-based backend for managing esports centers, including seat bookings, inventory management, match records, and more.
 
 ## Key Features
 
@@ -28,7 +28,7 @@ Real-time tracking of all gaming stations. Admins can monitor seat availability 
 </p>
 
 ### 📦 Inventory & Stock
-Easily manage eSports center supplies and hardware. Visual indicators help keep track of stock levels for drinks, snacks, and equipment.
+Easily manage esports center supplies and hardware. Visual indicators help keep track of stock levels for drinks, snacks, and equipment.
 
 <p align="center">
   <img src="docs/screenshots/inventory.png" width="90%" alt="Inventory List">
@@ -64,7 +64,7 @@ Detailed management of all transactions and match records. The system provides p
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/sut-seng-du/esports-management-system-laravel-backend.git
    cd back-end-rc
    ```
 
@@ -88,6 +88,7 @@ Detailed management of all transactions and match records. The system provides p
    ```bash
    php artisan migrate --seed
    ```
+   *Alternatively, you can import `web.sql` directly into your database using phpMyAdmin or the MySQL CLI.*
 
 6. **Start the Development Server**:
    ```bash
@@ -108,4 +109,6 @@ Default credentials (if seeded):
 The API routes are defined in `routes/api.php`. Most endpoints require a bearer token obtained via Laravel Sanctum.
 
 ---
-*Created with ❤️ for Esports Management.*
+## 📄 License
+
+This project is private and for internal use.
