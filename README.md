@@ -1,5 +1,13 @@
 # Esports Management System - Laravel Backend
 
+![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.1+-777BB4?style=for-the-badge&logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Web-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/Project%20Version-1.0.0-green?style=for-the-badge)
+
+
+
 A robust Laravel-based backend for managing esports centers, including seat bookings, inventory management, match records, and more.
 
 ## Key Features
@@ -13,28 +21,28 @@ A robust Laravel-based backend for managing esports centers, including seat book
 
 ## Feature Showcase
 
-### 📊 Dashboard & Monitoring
+### Dashboard & Monitoring
 A comprehensive overview of daily/weekly incomes, inventory proportions, and real-time system status. The dashboard provides clear data visualizations for better decision-making.
 
 <p align="center">
   <img src="docs/screenshots/dashboard.png" width="90%" alt="Dashboard Overview">
 </p>
 
-### 🖥️ Seat Management
+### Seat Management
 Real-time tracking of all gaming stations. Admins can monitor seat availability and status at a glance, ensuring efficient floor management.
 
 <p align="center">
   <img src="docs/screenshots/seats.png" width="90%" alt="Seat Management">
 </p>
 
-### 📦 Inventory & Stock
+### Inventory & Stock
 Easily manage esports center supplies and hardware. Visual indicators help keep track of stock levels for drinks, snacks, and equipment.
 
 <p align="center">
   <img src="docs/screenshots/inventory.png" width="90%" alt="Inventory List">
 </p>
 
-### 📝 Comprehensive Records
+### Comprehensive Records
 Detailed management of all transactions and match records. The system provides powerful filtering and export capabilities for administrative reports.
 
 <p align="center">
@@ -65,7 +73,7 @@ Detailed management of all transactions and match records. The system provides p
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/sut-seng-du/esports-management-system-laravel-backend.git
-   cd back-end-rc
+   cd esports-management-system-laravel-backend
    ```
 
 2. **Install dependencies**:
@@ -109,6 +117,6 @@ Default credentials (if seeded):
 The API routes are defined in `routes/api.php`. Most endpoints require a bearer token obtained via Laravel Sanctum.
 
 ---
-## 📄 License
+## License
 
 This project is private and for internal use.
