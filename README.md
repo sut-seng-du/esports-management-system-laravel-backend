@@ -108,7 +108,10 @@ Detailed management of all transactions and match records. The system provides p
 Once the server is running, the admin dashboard is accessible at:
 `http://localhost:8000/admin`
 
-Default credentials (if seeded):
+For a live demonstration, visit:
+[https://esports-admin.sutsengdu.com](https://esports-admin.sutsengdu.com)
+
+**Credentials:**
 - **Username**: `admin`
 - **Password**: `admin`
 
