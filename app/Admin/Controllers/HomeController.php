@@ -5,7 +5,7 @@ namespace App\Admin\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Record;
 use App\Models\Inventory;
-use App\admin\Controllers\Dashboard;
+use App\Admin\Controllers\Dashboard;
 use OpenAdmin\Admin\Admin;
 // use OpenAdmin\Admin\Controllers\Dashboard;
 use OpenAdmin\Admin\Layout\Column;
